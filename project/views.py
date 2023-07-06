@@ -10,7 +10,7 @@ def event_list(request):
     if request.method == 'GET':
         events = Event.objects.all()
         serializer = EventSerializer(events, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response({"Data": "Some data"}, status=status.HTTP_200_OK)
     if request.method == 'POST':
         serializer = EventSerializer(data=request.data)
         if serializer.is_valid():
